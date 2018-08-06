@@ -9,7 +9,6 @@ class Payment < ApplicationRecord
 	    sha_key=create_sha_digest string
 	    string += "hash="+sha_key
 	    encrypted = aes128_encrypt("secret 123",string)
-	    
 	end
 
 	def create_sha_digest string

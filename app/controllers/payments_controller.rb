@@ -26,7 +26,10 @@ class PaymentsController < ApplicationController
   def create
     @payment = Payment.new(payment_params)
     payment = params[:payment]
-    @payment.create_string payment
+    encrypted=@payment.create_string payment
+    payment_server_url = 'http:paymentserver.com'
+    response = Api.do_request(payment_server_url,encrypted )
+    decrypted = response.aes128_decrypt("secret 123", data)
     redirect_to new_payment_path
   end
 
