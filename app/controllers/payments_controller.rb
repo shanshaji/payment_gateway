@@ -1,6 +1,6 @@
+require 'net/http'
 class PaymentsController < ApplicationController
   before_action :set_payment, only: [:show, :edit, :update, :destroy]
-
   # GET /payments
   # GET /payments.json
   def index
@@ -28,7 +28,7 @@ class PaymentsController < ApplicationController
     payment = params[:payment]
     encrypted=@payment.create_string payment
     payment_server_url = 'http:paymentserver.com'
-    response = Api.do_request(payment_server_url,encrypted )
+    response = ::Api.do_request(payment_server_url,encrypted )
     decrypted = response.aes128_decrypt("secret 123", data)
     redirect_to new_payment_path
   end
