@@ -1,7 +1,7 @@
 version: 2
+target-branch: "master"
+rebase-strategy: "disabled"
 updates:
-  target-branch: "master"
-  rebase-strategy: "disabled"
   #Maintain dependencies for npm
   - package-ecosystem: "npm"
     directory: "/"
