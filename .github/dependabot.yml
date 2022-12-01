@@ -2,6 +2,7 @@ version: 2
 updates:
   target-branch: "master"
   rebase-strategy: "disabled"
+  
   # Maintain dependencies for GitHub Actions
   - package-ecosystem: "github-actions"
     # Workflow files stored in the
